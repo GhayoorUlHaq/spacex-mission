@@ -13,7 +13,7 @@ const LaunchType = new GraphQLObjectType({
         flight_number: { type: GraphQLInt}, // Key name is in response
         mission_name: { type: GraphQLString}, // Key name is in response
         launch_year: { type: GraphQLString}, // Key name is in response
-        launch_date_local: { type: GraphQLInt}, // Key name is in response
+        launch_date_local: { type: GraphQLString }, // Key name is in response
         launch_success: { type: GraphQLBoolean}, // Key name is in response
         rocket: { type: RocketType}, // Key name is in response
 
@@ -88,12 +88,12 @@ module.exports = new GraphQLSchema({
 //       }
 //     }
 //   }
-  
+
 // Sample Query for Launch
 // {
 //     launch(flight_number: 2){
-//       mission_name, 
-//       launch_year, 
+//       mission_name,
+//       launch_year,
 //       launch_success
 //      }
 // }
