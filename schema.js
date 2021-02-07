@@ -10,7 +10,7 @@ const axios = require('axios');
 const LaunchType = new GraphQLObjectType({
     name: 'Launch',
     fields: ()=>({
-        flight_number: { type: GraphQLInt}, // Key name is in response
+        flight_number: { type: GraphQLString}, // Key name is in response
         mission_name: { type: GraphQLString}, // Key name is in response
         launch_year: { type: GraphQLString}, // Key name is in response
         launch_date_local: { type: GraphQLString }, // Key name is in response
@@ -43,7 +43,7 @@ const RootQuery = new GraphQLObjectType({
         launch: {
             type: LaunchType,
             args: {
-                flight_number: { type: GraphQLInt }
+                flight_number: { type: GraphQLString }
             },
             resolve(parent, args){
                 return axios.get(`https://api.spacexdata.com/v3/launches/${args.flight_number}`)
